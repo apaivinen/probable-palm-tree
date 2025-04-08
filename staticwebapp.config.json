@@ -5,16 +5,6 @@
             "allowedRoles": [
                 "authenticated"
             ]
-        },
-        {
-            "route": "/login",
-            "redirect": "/.auth/login",
-            "statusCode":302
-        },
-        {
-            "route": "/logout",
-            "redirect": "/.auth/logout",
-            "statusCode":302
         }
     ],
     "responseOverrides": {
