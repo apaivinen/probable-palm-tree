@@ -9,9 +9,7 @@
         {
             "route": "/login",
             "redirect": "/.auth/login",
-            "allowedRoles": [
-                "anonymous"
-            ]
+            "statusCode":302
         },
         {
             "route": "/logout",
