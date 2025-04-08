@@ -1,22 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: blue;
+            padding: 5px 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: darkblue;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Azure Static Web Apps auth demo</h1>
     <div>
-        <a href="/.auth/login/aad">Login</a>
-        <a href="/.auth/logout">Log out</a>
+        <table>
+            <tr>
+                <td><a href="/.auth/login/aad" class="button">Login</a></td>
+            </tr>
+            <tr>
+                <td><a href="/.auth/logout" class="button">Log out</a></td>
+            </tr>
+        </table>
     </div>
     <div>
-        <ul>
-            <li><a href="/anonymous/">Anonymous Role page</a></li>
-            <li><a href="/authenticated/">Authenticated Role page</a></li>
-            <li><a href="/custom/">Custom Role page</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="/anonymous/">Anonymous Role page</a></li>
+                <li><a href="/authenticated/">Authenticated Role page</a></li>
+                <li><a href="/custom/">Custom Role page</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
+
 </html>
