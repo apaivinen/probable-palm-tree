@@ -1,16 +1,46 @@
 {
     "routes": [
-      {
-        "route": "/anonymous/*",
-        "allowedRoles": ["anonymous"]
-      },
-      {
-        "route": "/authenticated/*",
-        "allowedRoles": ["authenticated"]
-      },
-      {
-        "route": "/custom/*",
-        "allowedRoles": ["custom"]
-      }
-    ]
-  }
+        {
+            "route": "/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/anonymous/*",
+            "allowedRoles": [
+                "anonymous"
+            ]
+        },
+        {
+            "route": "/authenticated/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/custom/*",
+            "allowedRoles": [
+                "custom"
+            ]
+        },
+        {
+            "route": "/login",
+            "redirect": "/.auth/login",
+            "allowedRoles": [
+                "anonymous"
+            ]
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout",
+            "statusCode":302
+        }
+    ],
+    "responseOverrides": {
+        "401": {
+            "statusCode": 302,
+            "redirect": "/.auth/login/aad"
+        }
+    }
+}
