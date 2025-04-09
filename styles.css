@@ -38,3 +38,7 @@ nav ul li a:hover {
 .button:hover {
     background-color: darkblue;
 }
+
+.greeting{
+    margin: 10px;;
+}

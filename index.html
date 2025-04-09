@@ -33,15 +33,24 @@
           .then(response => response.json())
           .then(data => {
             const user = data.clientPrincipal;
-            if (user) {
-              const name = user.userDetails || "there";
-              document.getElementById("greeting").textContent = `Greetings, ${name}`;
+            let displayName = "there";
+      
+            if (user && user.claims) {
+              const nameClaim = user.claims.find(claim => claim.typ === "name");
+              if (nameClaim) {
+                displayName = nameClaim.val;
+              } else {
+                // Fallback if name claim isn't found
+                displayName = user.userDetails;
+              }
             }
+      
+            document.getElementById("greeting").textContent = `Greetings, ${displayName}`;
           })
           .catch(err => {
             console.error("Error fetching auth info:", err);
           });
       </script>
-      
+
 </body>
 </html>
