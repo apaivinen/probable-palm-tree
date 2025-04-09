@@ -21,10 +21,27 @@
             </ul>
         </nav>
     </div>
+    <div id="greeting">
+       
+    </div>
     <div>
         <td><a href="/logout" class="button">Log out</a></td>
     </div>
     
+    <script>
+        fetch('/.auth/me')
+          .then(response => response.json())
+          .then(data => {
+            const user = data.clientPrincipal;
+            if (user) {
+              const name = user.userDetails || "there";
+              document.getElementById("greeting").textContent = `Greetings, ${name}`;
+            }
+          })
+          .catch(err => {
+            console.error("Error fetching auth info:", err);
+          });
+      </script>
+      
 </body>
-
 </html>
