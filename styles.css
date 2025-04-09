@@ -29,6 +29,7 @@ nav ul li a:hover {
     color: white;
     background-color: blue;
     padding: 10px 20px;
+    margin-top: 10px;
     border: none;
     border-radius: 5px;
     text-align: center;
